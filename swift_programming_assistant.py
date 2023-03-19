@@ -2,7 +2,10 @@ import gradio as gr
 import openai, config, subprocess
 openai.api_key = config.OPENAI_API_KEY
 
-messages = [{"role": "system", "content": 'You are a therapist. Respond to all input in 25 words or less.'}]
+messages = [{"role": "system", "content": 'You are a programming assistant. \
+You are an expert in the Swift programming language. \
+I am trying to create a small swift command line test for educational purposes. \
+I am using the linux subsystem for Windows 10. Respond to all input in 250 words or less.'}]
 
 def transcribe( textFromTextbox):
     global messages
@@ -19,10 +22,7 @@ def transcribe( textFromTextbox):
         transcript = openai.Audio.transcribe("whisper-1", audio_file)
         messages.append({ "role": "user", "content": transcript["text"] })
 
-    # get the response from the gpt-3 model and limit the response to 25 words
-    response = openai.ChatCompletion.create( model="gpt-3.5-turbo", messages=messages, max_tokens=50 )
-    
-    
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
 
     system_message = response["choices"][0]["message"]
     
