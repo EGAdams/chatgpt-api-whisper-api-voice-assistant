@@ -1,28 +1,22 @@
+import os
 import gradio as gr
 import openai, config, subprocess
 openai.api_key = config.OPENAI_API_KEY
 
 messages = [{"role": "system", "content": 'You are a therapist. Respond to all input in 25 words or less.'}]
 
-def transcribe( textFromTextbox):
+def transcribe(audio):
     global messages
-    
-    audio = None
-    
-    print( "textFromTextbox: " + textFromTextbox )
-    if (audio is None):
-        # get the text from the textbox input
-        messages.append({ "role": "user", "content": textFromTextbox })
-    else:
-        print("Audio received")
-        audio_file = open(audio, "rb")
-        transcript = openai.Audio.transcribe("whisper-1", audio_file)
-        messages.append({ "role": "user", "content": transcript["text"] })
 
-    # get the response from the gpt-3 model and limit the response to 25 words
-    response = openai.ChatCompletion.create( model="gpt-3.5-turbo", messages=messages, max_tokens=50 )
+    audio_filename_with_extension = audio + '.wav'
+    os.rename(audio, audio_filename_with_extension)
     
-    
+    audio_file = open(audio_filename_with_extension, "rb")
+    transcript = openai.Audio.transcribe("whisper-1", audio_file)
+
+    messages.append({"role": "user", "content": transcript["text"]})
+
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
 
     system_message = response["choices"][0]["message"]
     
@@ -39,17 +33,5 @@ def transcribe( textFromTextbox):
 
     return chat_transcript
 
-# add a gr.Interface with a microphone and text input and a text output
-# This is the command used for making an interface with the gradio library: 
-# ui = gr.Interface(fn=transcribe, inputs=gr.Audio(source="microphone", type="filepath"), outputs="text").launch() 
-# It only shows a record icon and a microphone input. 
-# I need a microphone source AND a textbox source. will you modify this python code
-# so that it will also show a textbox input? 
-# ui =
-# ui = gr.Interface(fn=transcribe, inputs=[gr.Audio(source="microphone", type="filepath"), gr.inputs.Textbox()], outputs="text")
-ui = gr.Interface(fn=transcribe, inputs=[gr.inputs.Textbox()], outputs="text")
-# ui = gr.Interface(fn=transcribe, inputs=gr.Audio(source="microphone", type="filepath"), outputs="text").launch()
-
-
-
+ui = gr.Interface(fn=transcribe, inputs=gr.Audio(source="microphone", type="filepath"), outputs="text").launch()
 ui.launch()

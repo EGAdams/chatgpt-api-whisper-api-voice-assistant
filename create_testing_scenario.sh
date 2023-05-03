@@ -1,5 +1,5 @@
-user: The following is a list of commands that I need to take
-in order to create the swift project:
+# user: The following is a list of commands that I need to take
+# in order to create the swift project:
 
 # Step	Command
 # 1.	Create a new folder for your project:

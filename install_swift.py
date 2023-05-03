@@ -11,9 +11,9 @@ os.system('sudo apt-get update')
 os.system('sudo apt-get install -y clang libicu-dev libcurl4-openssl-dev libssl-dev')
 
 # Download and install Swift
-os.system('wget https://swift.org/builds/swift-5.5-release/ubuntu2004/swift-5.5-RELEASE/swift-5.5-RELEASE-ubuntu20.04.tar.gz')
-os.system('tar xzf swift-5.5-RELEASE-ubuntu20.04.tar.gz')
-os.system('sudo mv swift-5.5-RELEASE-ubuntu20.04 /usr/local/swift')
+os.system('wget https://swift.org/builds/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz')
+os.system('tar xzf swift-5.7-RELEASE-ubuntu20.04.tar.gz')
+os.system('sudo mv swift-5.7-RELEASE-ubuntu20.04 /usr/local/swift')
 
 # Add Swift to PATH
 os.system('echo "export PATH=/usr/local/swift/usr/bin:$PATH" >> ~/.bashrc')

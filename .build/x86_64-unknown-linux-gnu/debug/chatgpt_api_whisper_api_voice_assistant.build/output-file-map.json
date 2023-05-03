@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/master.swiftdeps"
+  },
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Sources/chatgpt-api-whisper-api-voice-assistant/chatgpt_api_whisper_api_voice_assistant.swift": {
+    "dependencies": "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.d",
+    "object": "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o",
+    "swiftmodule": "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant~partial.swiftmodule",
+    "swift-dependencies": "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftdeps"
+  }
+}

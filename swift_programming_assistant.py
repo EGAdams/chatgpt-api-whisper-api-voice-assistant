@@ -18,11 +18,12 @@ def transcribe( textFromTextbox):
         messages.append({ "role": "user", "content": textFromTextbox })
     else:
         print("Audio received")
-        audio_file = open(audio, "rb")
-        transcript = openai.Audio.transcribe("whisper-1", audio_file)
-        messages.append({ "role": "user", "content": transcript["text"] })
+        # audio_file = open(audio, "rb")
+        # transcript = openai.Audio.transcribe("whisper-1", audio_file)
+        # messages.append({ "role": "user", "content": transcript["text"] })
 
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+    # response = openai.ChatCompletion.create(model="gpt-4", messages=messages)
 
     system_message = response["choices"][0]["message"]
     

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pixel Mapper Simulation</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(64, 1fr);
+        grid-template-rows: repeat(64, 1fr);
+        height: 640px;
+        width: 640px;
+        border: 1px solid black;
+      }
+      .grid-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+      }
+      .visible {
+        background-color: lightblue;
+      }
+      .mapped {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid" id="grid"></div>
+    <script>
+      class Panel {
+        constructor(x_offset, y_offset) {
+          this.x_offset = x_offset;
+          this.y_offset = y_offset;
+        }
+      }
+      
+      class OneSixtyFourMapper {
+        constructor() {
+          this.parallel_ = 1;
+        }
+        
+        getName() {
+          return "164-mapper";
+        }
+        
+        setSizeMapping(matrixWidth, matrixHeight) {
+          let visibleWidth = Math.floor(matrixWidth / 64) * 32;
+          let visibleHeight = 2 * matrixHeight;
+          console.log(`matrix width: ${matrixWidth} matrix height: ${matrixHeight}`);
+          console.log(`visible width: ${visibleWidth} visible height: ${visibleHeight}`);
+        }
+        
+        mapVisibleToMatrix(x, y) {
+          let incoming_x = x;
+          let incoming_y = y;
+          let refreshedPanel = this.getPanelOffsets(x, y);
+          let matrix_x = x + refreshedPanel.x_offset;
+          let matrix_y = y + refreshedPanel.y_offset;
+          console.log(`x_offset: ${refreshedPanel.x_offset} y_offset: ${refreshedPanel.y_offset}, incoming_x: ${incoming_x}, incoming_y: ${incoming_y}, new_x: ${matrix_x}, new_y: ${matrix_y}`);
+          
+          return [matrix_x, matrix_y];
+        }
+        
+        getPanelOffsets(x, y) {
+          let newPanel = new Panel();
+          if (y >= 32) {
+            newPanel.y_offset = -32;
+            newPanel.x_offset = 0;
+          } else {
+            newPanel.y_offset = 0;
+            newPanel.x_offset = 0;
+          }
+          
+          return newPanel;
+        }
+      }
+      
+      const mapper = new OneSixtyFourMapper();
+      mapper.setSizeMapping(128, 32);
+      
+      const grid = document.getElementById("grid");
+      
+      for (let i = 0; i < 64; i++) {
+        for (let j = 0; j < 64; j++) {
+          const div = document.createElement("div");
+          div.classList.add("grid-item");
+          grid.appendChild(div);
+          
+          if (i < 64 && j < 32) {
+            div.classList.add("visible");
+          }
+          
+          const [mapped_x, mapped_y] = mapper.mapVisibleToMatrix(i, j);
+          if (mapped_x >= 0 && mapped_x < 128 && mapped_y >=0 && mapped_y < 32) {
+            const index = mapped_x + mapped_y * 128;
+            const mappedDiv = grid.children[index];
+            mappedDiv.classList.add("mapped");
+          }
+        }
+      }
+    </script>
+  Number of words used: 465
+  </body>
+</html>

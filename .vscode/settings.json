@@ -1,7 +1,14 @@
 {
     "cSpell.words": [
+        "abspath",
+        "creationflags",
+        "getlogin",
         "gradio",
-        "OPENAI"
+        "OPENAI",
+        "Popen",
+        "randint",
+        "startfile",
+        "taskkill"
     ],
     "python.analysis.typeCheckingMode": "basic"
 }

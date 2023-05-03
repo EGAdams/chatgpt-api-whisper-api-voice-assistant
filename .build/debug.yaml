@@ -1,0 +1,175 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "chatgpt-api-whisper-api-voice-assistant-debug.exe": ["<chatgpt-api-whisper-api-voice-assistant-debug.exe>"]
+  "chatgpt-api-whisper-api-voice-assistant-debug.module": ["<chatgpt-api-whisper-api-voice-assistant-debug.module>"]
+  "chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests-debug.module": ["<chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests-debug.module>"]
+  "chatgpt-api-whisper-api-voice-assistantPackageTests-debug.module": ["<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.module>"]
+  "chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test": ["<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test>"]
+  "chatgpt-api-whisper-api-voice-assistantTests-debug.module": ["<chatgpt-api-whisper-api-voice-assistantTests-debug.module>"]
+  "main": ["<chatgpt-api-whisper-api-voice-assistant-debug.exe>","<chatgpt-api-whisper-api-voice-assistant-debug.module>"]
+  "test": ["<chatgpt-api-whisper-api-voice-assistant-debug.exe>","<chatgpt-api-whisper-api-voice-assistant-debug.module>","<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test>","<chatgpt-api-whisper-api-voice-assistantTests-debug.module>"]
+default: "main"
+nodes:
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Sources/chatgpt-api-whisper-api-voice-assistant/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Tests/chatgpt-api-whisper-api-voice-assistantTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/all-discovered-tests.swift":
+    tool: test-discovery-tool
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swift.o"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/all-discovered-tests.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/chatgpt-api-whisper-api-voice-assistantTests.swift"]
+
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.derived/runner.swift"]
+
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftmodule.o":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftmodule.o"]
+    description: "Wrapping AST for chatgpt-api-whisper-api-voice-assistant for debugging"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-modulewrap","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.swiftmodule","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule.o"]
+    description: "Wrapping AST for chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests for debugging"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-modulewrap","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule.o"]
+    description: "Wrapping AST for chatgpt-api-whisper-api-voice-assistantPackageTests for debugging"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-modulewrap","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule.o"]
+    description: "Wrapping AST for chatgpt-api-whisper-api-voice-assistantTests for debugging"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-modulewrap","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "<chatgpt-api-whisper-api-voice-assistant-debug.exe>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistant-debug.exe>"]
+
+  "<chatgpt-api-whisper-api-voice-assistant-debug.module>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.swiftmodule"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistant-debug.module>"]
+
+  "<chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests-debug.module>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/all-discovered-tests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt-api-whisper-api-voice-assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests-debug.module>"]
+
+  "<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.module>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/runner.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.module>"]
+
+  "<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.xctest"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test>"]
+
+  "<chatgpt-api-whisper-api-voice-assistantTests-debug.module>":
+    tool: phony
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule"]
+    outputs: ["<chatgpt-api-whisper-api-voice-assistantTests-debug.module>"]
+
+  "C.chatgpt-api-whisper-api-voice-assistant-debug.exe":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftmodule.o"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-L","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant","-module-name","chatgpt_api_whisper_api_voice_assistant","-emit-executable","-Xlinker","--defsym","-Xlinker","main=chatgpt_api_whisper_api_voice_assistant_main","-Xlinker","-rpath=$ORIGIN","@/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-v","-L","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/lib"]
+
+  "C.chatgpt-api-whisper-api-voice-assistant-debug.module":
+    tool: swift-compiler
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Sources/chatgpt-api-whisper-api-voice-assistant/chatgpt_api_whisper_api_voice_assistant.swift"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.swiftmodule"]
+    executable: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc"
+    module-name: "chatgpt_api_whisper_api_voice_assistant"
+    module-output-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.swiftmodule"
+    import-paths: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build"
+    objects: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","chatgpt_api_whisper_api_voice_assistant_main","-parse-as-library","-color-diagnostics","-v"]
+    sources: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Sources/chatgpt-api-whisper-api-voice-assistant/chatgpt_api_whisper_api_voice_assistant.swift"]
+    is-library: false
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/all-discovered-tests.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/chatgpt-api-whisper-api-voice-assistantTests.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/all-discovered-tests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt-api-whisper-api-voice-assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"]
+    executable: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc"
+    module-name: "chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests"
+    module-output-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"
+    import-paths: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build"
+    objects: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/all-discovered-tests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt-api-whisper-api-voice-assistantTests.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-v"]
+    sources: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/all-discovered-tests.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageDiscoveredTests.derived/chatgpt-api-whisper-api-voice-assistantTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.chatgpt-api-whisper-api-voice-assistantPackageTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.derived/runner.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/runner.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule"]
+    executable: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc"
+    module-name: "chatgpt_api_whisper_api_voice_assistantPackageTests"
+    module-output-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule"
+    import-paths: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build"
+    objects: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/runner.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-v"]
+    sources: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.derived/runner.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.chatgpt-api-whisper-api-voice-assistantPackageTests-debug.test":
+    tool: shell
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistant.build/chatgpt_api_whisper_api_voice_assistant.swiftmodule.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/all-discovered-tests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt-api-whisper-api-voice-assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.build/chatgpt_api_whisper_api_voice_assistantPackageDiscoveredTests.swiftmodule.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/chatgpt_api_whisper_api_voice_assistantPackageTests.swiftmodule.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantPackageTests.build/runner.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule.o"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.xctest"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.xctest"
+    args: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc","-L","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug","-o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.xctest","-module-name","chatgpt_api_whisper_api_voice_assistantPackageTests","-emit-executable","-Xlinker","-rpath=$ORIGIN","@/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistantPackageTests.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-v","-L","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/lib"]
+
+  "C.chatgpt-api-whisper-api-voice-assistantTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Tests/chatgpt-api-whisper-api-voice-assistantTests/chatgpt_api_whisper_api_voice_assistantTests.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt-api-whisper-api-voice-assistant"]
+    outputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swift.o","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule"]
+    executable: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/setup_script/swift/swift-DEVELOPMENT-SNAPSHOT-2023-03-17-a-ubuntu22.04/usr/bin/swiftc"
+    module-name: "chatgpt_api_whisper_api_voice_assistantTests"
+    module-output-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.swiftmodule"
+    import-paths: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build"
+    objects: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/chatgpt_api_whisper_api_voice_assistantTests.build/chatgpt_api_whisper_api_voice_assistantTests.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-v"]
+    sources: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Tests/chatgpt-api-whisper-api-voice-assistantTests/chatgpt_api_whisper_api_voice_assistantTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Sources/chatgpt-api-whisper-api-voice-assistant/","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Tests/chatgpt-api-whisper-api-voice-assistantTests/","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Package.swift","/mnt/c/Users/eg197/chatgpt-api-whisper-api-voice-assistant/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
