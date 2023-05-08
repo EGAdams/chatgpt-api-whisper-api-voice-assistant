@@ -1,72 +1,56 @@
-import langchain
+# Step 1: Install required packages (if not already installed)
+# !pip install faiss-cpu
+# !pip install langchain
+# Import additional required libraries
+from langchain.chains.qa_with_sources.retrieval import RetrievalQAWithSourcesChain
+from langchain.chat_models.openai import ChatOpenAI
+from langchain.text_splitter import CharacterTextSplitter
+import numpy as np
+from typing import List
 from langchain.document_loaders import GitLoader
 from langchain.vectorstores import FAISS
 import os
 from langchain.llms import OpenAI
-import openai
-
-#repo = 'https://github.com/EGAdams/monitored-object-js.git'
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
 
 from git import Repo
 
-repo = Repo.clone_from(
-    #"https://github.com/hwchase17/langchain", to_path="./example_data/test_repo1"
-    "https://github.com/EGAdams/monitored-object-js.git", to_path="./mb_data/test_repo1"
-)
+repo = Repo.clone_from( "https://github.com/egadams/monitored-object-js.git", to_path="./mb_data/test_repo1" )
+
 branch = repo.head.reference
 
 # Create a GithubLoader instance
-loader = GitLoader(repo_path="./mb_data/test_repo1", branch=branch )
-
-# Load the entire repository
-repo_contents = loader.load()
-
+loader = GitLoader(repo_path="./mb_data/test_repo1", branch=branch)
 
 # Initialize LLM
-with open(".env", "r") as f:
+with open( ".env", "r" ) as f:
     key = f.read().strip()
 
-print( "Key:", key )
+print( "Key:", key)
 
 os.environ["OPENAI_API_KEY"] = key
-llm = OpenAI(engine="ada")
+llm = OpenAI(engine="ada" )
 
-def get_embedding(text, model="text-embedding-ada-002"):
-   text = text.replace("\n", " ")
-   return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
+data = loader.load()
 
-# Check if embeddings exist in local storage
-if os.path.exists("embeddings.faiss"):
-    # Load embeddings from local storage
-    index = faiss.read_index("embeddings.faiss")
-else:
-    # Generate embeddings for data
-    embeddings = []
-    for file in data:
-        embedding = llm.embed(file["page_content"])
-        embeddings.append(embedding)
-    embeddings = np.vstack(embeddings)
+print( "Splitting documents in chunks ..." )
+chunk_size = 8000
+chunk_overlap = 3000
+doc_splitter = CharacterTextSplitter(
+    chunk_size=chunk_size, chunk_overlap=chunk_overlap
+)
+docs = doc_splitter.split_documents(data)
 
-    # Store embeddings in local storage using FAISS
-    d = embeddings.shape[1]
-    index = faiss.IndexFlatL2(d)
-    index.add(embeddings)
-    faiss.write_index(index, "embeddings.faiss")
+print( "Building the vector database ..." )
+embeddings = OpenAIEmbeddings()
+docsearch = Chroma.from_documents(docs, embeddings)
 
-# Use embeddings to find relevant data to include in prompt
-D, I = index.search(query_embedding, k=5)
-relevant_data = ""
-for i in I[0]:
-    relevant_data += data[i]["page_content"] + "\n"
+print( "Building the retrieval chain ..." )
+finalChain = RetrievalQAWithSourcesChain.from_chain_type(
+    ChatOpenAI(),
+    chain_type="map_reduce",
+    retriever=finalChain.as_retriever(),
+)
 
-# Generate new code with LLM
-prompt = f"{relevant_data}\nCreate a monitored object that gets the time."
-new_code = llm(prompt)
-
-
-print ( len( embeddings ))
-# Store the embeddings in Faiss
-# index = faiss.IndexFlatL2( 512 )
-# index.add( embeddings )
-# faiss.write_index( index, './index.faiss' )
-
+print( "Knowledge base created!" )
