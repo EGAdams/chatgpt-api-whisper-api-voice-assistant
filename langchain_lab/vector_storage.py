@@ -43,6 +43,9 @@ doc_splitter = CharacterTextSplitter(
 docs = doc_splitter.split_documents(data)
 
 print( "Building the vector database ..." )
+
+
+#problem is after here...
 embeddings = OpenAIEmbeddings()
 docsearch = Chroma.from_documents(docs, embeddings)
 

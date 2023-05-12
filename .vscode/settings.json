@@ -2,8 +2,11 @@
     "cSpell.words": [
         "abspath",
         "creationflags",
+        "docsearch",
         "getlogin",
+        "gitloader",
         "gradio",
+        "llms",
         "OPENAI",
         "Popen",
         "randint",
