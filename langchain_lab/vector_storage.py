@@ -47,6 +47,7 @@ print( "Building the vector database ..." )
 
 #problem is after here...
 embeddings = OpenAIEmbeddings()
+print( "populating docsearch ..." )
 docsearch = Chroma.from_documents(docs, embeddings)
 
 print( "Building the retrieval chain ..." )
