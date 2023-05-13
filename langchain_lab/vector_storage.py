@@ -30,7 +30,7 @@ with open( ".env", "r" ) as f:
 print( "Key:", key)
 
 os.environ["OPENAI_API_KEY"] = key
-llm = OpenAI(engine="ada" )
+llm = OpenAI( engine="ada", api_key=key )
 
 data = loader.load()
 
@@ -44,10 +44,10 @@ docs = doc_splitter.split_documents(data)
 
 print( "Building the vector database ..." )
 
+embeddings = OpenAIEmbeddings( openai_api_key=key )
 
-#problem is after here...
-embeddings = OpenAIEmbeddings()
 print( "populating docsearch ..." )
+#problem is after here...
 docsearch = Chroma.from_documents(docs, embeddings)
 
 print( "Building the retrieval chain ..." )
